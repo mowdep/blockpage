@@ -1,6 +1,6 @@
 # Wiki Contributions
 
-To contribute to the PiPass Wiki, simply fork the [PiPass repository](https://github.com/roenw/PiPass). Make your edits on your fork, and then submit a pull request to the PiPass repository. When your branch is merged into master, I'll rebuild the Wiki and the changes will go live.
+To contribute to the PiPass Wiki, simply fork the [PiPass repository](https://github.com/roenw/PiPass) and checkout the ``docs`` branch. Make your edits, and create a pull request. When your contributions are pulled into the main repository, the public wiki will be rebuilt soon after and your changes will go live.
 
 ## MkDocs
 
