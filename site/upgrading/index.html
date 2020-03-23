@@ -214,8 +214,8 @@
 
 
   <li class="md-nav__item">
-    <a href=".." title="Welcome!" class="md-nav__link">
-      Welcome!
+    <a href=".." title="Welcome" class="md-nav__link">
+      Welcome
     </a>
   </li>
 
@@ -282,78 +282,9 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Upgrading
-      </label>
-    
     <a href="./" title="Upgrading" class="md-nav__link md-nav__link--active">
       Upgrading
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#beginning-the-upgrade" class="md-nav__link">
-    Beginning the Upgrade
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#checking-for-conflicts" class="md-nav__link">
-    Checking for Conflicts
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#if-there-is-no-output-returned" class="md-nav__link">
-    If there is no output returned
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#if-there-is-an-output-returned" class="md-nav__link">
-    If there is an output returned
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resolving-merge-conflicts" class="md-nav__link">
-    Resolving Merge Conflicts
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -387,62 +318,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#beginning-the-upgrade" class="md-nav__link">
-    Beginning the Upgrade
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#checking-for-conflicts" class="md-nav__link">
-    Checking for Conflicts
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#if-there-is-no-output-returned" class="md-nav__link">
-    If there is no output returned
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#if-there-is-an-output-returned" class="md-nav__link">
-    If there is an output returned
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resolving-merge-conflicts" class="md-nav__link">
-    Resolving Merge Conflicts
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -457,29 +332,6 @@
                 
                 
                 <h1 id="upgrading">Upgrading</h1>
-<p>Upgrading your PiPass installation is a relatively easy process and will take 2 to 5 minutes depending on your experience with Linux and the <code>git</code> version-control system. Bear in mind that if you are upgrading from version 1.3 or lower, the update command will <strong>break</strong> your PiPass installation until you complete the upgrade process. This Wiki article will guide you through that whole process.</p>
-<h2 id="beginning-the-upgrade">Beginning the Upgrade</h2>
-<p>First, start by initiating the upgrade. Execute <code>bash &lt;(wget -qO- https://kubrick.roen.us/pipass/scripts/install.sh)</code> and answer the prompts.</p>
-<h3 id="checking-for-conflicts">Checking for Conflicts</h3>
-<p>Now, let's see if we are done. Execute this following command: <code>cat /var/www/config.php | grep \&lt;\&lt;</code></p>
-<h4 id="if-there-is-no-output-returned">If there is no output returned</h4>
-<p>Lucky you! There were no conflicts, and you are probably done with the upgrade. Head to the blockpage and make sure it's intact. If the blockpage is not showing up, run <code>git diff --name-only --diff-filter=U | grep --invert-match setup/</code> and follow the directions listed below on the files listed.</p>
-<h4 id="if-there-is-an-output-returned">If there is an output returned</h4>
-<p>If the command <em>does return an output:</em> it's likely that we've encountered a merge conflict. To someone who hasn't had a lot of experience with <code>git</code>, this can sound daunting, but it isn't. All it means is that PiPass code has been updated as well as the code on your system. All you have to decide is which code <strong>stays</strong>. Follow the instructions below to resolve this conflict.</p>
-<h2 id="resolving-merge-conflicts">Resolving Merge Conflicts</h2>
-<blockquote>
-<p>If you are inexperienced with <code>git</code>, we reccomend you copy your configuration files into a program such as Visual Studio Code which can help you deal with merge conflicts very easily and intuitively.</p>
-</blockquote>
-<p>1. Open <code>config.php</code> in your favorite text editor, and find the part that looks like this:</p>
-<pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; Updated upstream
-$conf['blockpage_url'] = get_config('blockpage_url', &quot;blockpage/index.php&quot;);
-=======
-$conf['blockpage_url'] = &quot;https://172.16.64.31/blockpage/&quot;;
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; Stashed changes
-</code></pre>
-
-<p>2. Remove the lines which contain <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>. The top line is the new code from PiPass, and the bottom line is the code that was on your system. Your job, now, is to <strong>merge</strong> these lines of code. For this example, the merge result would look like:</p>
-<p><code>$conf['blockpage_url'] = get_config('blockpage_url', "https://172.16.64.31/blockpage/");</code></p>
                 
                   
                 

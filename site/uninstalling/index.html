@@ -214,8 +214,8 @@
 
 
   <li class="md-nav__item">
-    <a href=".." title="Welcome!" class="md-nav__link">
-      Welcome!
+    <a href=".." title="Welcome" class="md-nav__link">
+      Welcome
     </a>
   </li>
 
@@ -295,13 +295,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#ensuring-full-removal" class="md-nav__link">
-    Ensuring Full Removal
-  </a>
-  
-</li>
-      
       
       
       
@@ -364,13 +357,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#ensuring-full-removal" class="md-nav__link">
-    Ensuring Full Removal
-  </a>
-  
-</li>
-      
       
       
       
@@ -393,18 +379,10 @@
                 <h1 id="uninstalling">Uninstalling</h1>
 <p>We will miss you, but we want to make this an easy breakup.</p>
 <p>To uninstall, execute the following command in the Terminal:
-<code>bash &lt;(wget -qO- https://kubrick.roen.us/pipass/scripts/uninstall.sh)</code></p>
+<code>bash &lt;(wget -qO- https://sputnik.roen.us/pipass/scripts/uninstall.sh)</code></p>
+<p>If you are experiencing any issues with the uninstaller, you can create an issue to let us know.</p>
 <h2 id="feedback">Feedback</h2>
 <p>Please take the time to submit <a href="https://github.com/roenw/PiPass/issues">feedback</a> addressing the issues or limitations that are moving you to uninstall.</p>
-<h2 id="ensuring-full-removal">Ensuring Full Removal</h2>
-<p>The uninstall script will attempt to revert all changes the PiPass installer made, but is not perfect. Here are some things to check once the uninstaller has completed.</p>
-<ol>
-<li>Check if the PiPass entry in <code>/etc/sudoers</code> has been removed. (<code>sudo cat /etc/sudoers | grep \/usr\/local\/bin\/pihole</code></li>
-<li>Make sue 404 redirects have been disabled (<code>cat /etc/lighttpd/lighttpd.conf | grep 404</code>)</li>
-<li>Check if PiPass files have been removed (<code>ls /var/www/ | grep blockpage</code>)</li>
-<li>Optional: Make sure you have reverted <code>NODATA</code>-based blocking (<code>cat /etc/pihole/pihole-FTL.conf | grep BLOCKINGMODE</code>)</li>
-</ol>
-<p>That's it. PiPass should be uninstalled.</p>
                 
                   
                 
